@@ -1,11 +1,12 @@
 "use client"
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 
 
 const Navbar = () => {
     const pathName =usePathname()
+    const router =useRouter()
     console.log(pathName);
     
   const Links = [
@@ -22,6 +23,10 @@ const Navbar = () => {
       path: "/contact",
     },
   ];
+  const handler=()=>{
+    router.push("/about")
+
+  }
   return (
     <div className=""> 
       <nav className="bg-red-500 text-white py-4  px-4 flex justify-between items-center">
@@ -33,6 +38,7 @@ const Navbar = () => {
             <Link className={`${pathName=== link.path && "text-cyan-300"}`} href={link.path}>{link.title}</Link>
           ))}
         </ul>
+        <button onClick={handler} className="bg-white text-cyan-500 p4">Login</button>
       </nav>
     </div>
   );

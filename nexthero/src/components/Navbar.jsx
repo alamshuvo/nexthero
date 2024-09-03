@@ -22,6 +22,10 @@ const Navbar = () => {
       title: "Contact",
       path: "/contact",
     },
+    {
+      title: "blogs",
+      path: "/blogs",
+    },
   ];
   const handler=()=>{
     router.push("/about")
